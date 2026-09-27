@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sca-arsenal"
+version = "1.0.0"
+description = "Cross-container side-channel attack research toolkit: Flush+Reload, Prime+Probe, Flush+Flush, Evict+Time, Rowhammer, KSM, GPU contention, cache covert channels, steganographic polyglot carriers."
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [{name = "frankSx"}]
+keywords = ["side-channel", "cache-timing", "flush+reload", "prime+probe", "rowhammer", "covert-channel", "security-research"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Security",
+    "Programming Language :: Python :: 3",
+]
+dependencies = ["numpy>=1.21"]
+
+[project.optional-dependencies]
+image = ["Pillow>=9.0"]
+gpu = ["pyopencl>=2022.1"]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+sca-arsenal = "sca_arsenal.cli:main"
+
+[tool.setuptools]
+packages = ["sca_arsenal"]
